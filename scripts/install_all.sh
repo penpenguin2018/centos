@@ -1,6 +1,8 @@
 #!/bin/sh
-install_all.sh
-mkv.sh
-nvidia.sh
-rmbeep.sh
-utility.sh
+sh nvidia.sh
+sh utility.sh
+sh code.sh
+sh mkv.sh
+sh rmbeep.sh
+sh trans.sh
+
