@@ -28,14 +28,14 @@ def addProject(name) :
 def existProject(name) :
 	if os.path.exists("/project/%s" %(name)) :
 		print ("경로가 이미 존재합니당")
-		return False
+		sys.exit()
 	else :
 		return True
 
 def checkRoot():
 	if not os.path.exists("/project") :
 		print("project폴더가 존재하지 않습니다.")
-		return False
+		sys.exit()
 	else :
 		return True
 
