@@ -25,8 +25,12 @@ def addProject(projectName) :
 	
 	for s in subDirs :
 		p = "/".join([ROOT,projectName,s])
-		os.makedirs(p)
-
+		try :
+			os.makedirs(p)
+		except :
+			return "%s 프로젝트를 생성할 수 없습니다." % (projectName)
+	return None
+	
 def help() :
 	print "How to use:"
 	print "$ addproject projectname"
@@ -40,7 +44,6 @@ def checkRoot():
 def isProject(projectName):
 	"""
 	프로젝트가 이미 존재하는지 체크한다.
-	/project/name
 	"""
 	global ROOT
 	if os.path.exists("%s/%s" % (ROOT, projectName)):
@@ -51,20 +54,23 @@ if __name__ == "__main__" :
 	# 입력갯수 체크
 	if len(sys.argv) != 2:
 		help()
-		sys.exit()
+		sys.exit(1)
 	projectName = sys.argv[1]
 	
 	# 프로젝트가 이미 존재하는지 체크
 	err = checkRoot()
 	if err :
 		print err
-		sys.exit()
+		sys.exit(1)
 	
 	# 프로젝트가 이미 존재하는지 체크
 	err = isProject(projectName)
 	if err :
 		print err
-		sys.exit()
+		sys.exit(1)
 
 	# 프로젝트 하위 경로 생성
-	addProject(projectName)
+	err = addProject(projectName)
+	if err:
+		print err
+		sys.exit(1)
