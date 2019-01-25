@@ -3,7 +3,7 @@
 import sys
 import os
 
-def addProject(name):
+def addProject(name) :
 	"""
 	프로젝트를 생성하는 함수입니다.
 	"""
@@ -21,14 +21,17 @@ def addProject(name):
 	"doc",
 	"doc/concept"]
 
-	for s in subDirs:
+	for s in subDirs :
 		p = "/".join([root,name,s])
 		os.makedirs(p)
 
-if __name__ == "__main__":
-	if  len(sys.argv) != 2:
+if __name__ == "__main__" :
+	if  len(sys.argv) != 2 :
 		print "How to use:"
 		print "$ addproject projectname"
 		sys.exit()
 	name = sys.argv[1]
-	addProject(name)
+	if os.path.exists("/project/%s" %(name)) :
+		print ("경로가 이미 존재합니당" )	
+	else :
+		addProject(name)
