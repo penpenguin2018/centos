@@ -6,3 +6,4 @@ sh djv.sh
 sh mkv.sh
 sh rmbeep.sh
 sh trans.sh
+sh pip.sh
