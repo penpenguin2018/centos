@@ -16,4 +16,4 @@ sh ffmpeg.sh
 sh openimageio.sh
 sh mediainfo.sh
 sh ocio_config.sh
-
+sh devtools.sh
