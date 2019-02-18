@@ -17,4 +17,7 @@ sh openimageio.sh
 sh mediainfo.sh
 sh ocio_config.sh
 sh devtools.sh
-sh cmake.sh
+sh gnometweaks.sh
+scl enable devtoolset-6 ./cmake.sh
+scl enable devtoolset-6 ./openexr.sh
+scl enable devtoolset-6 ./opencolorio.sh
